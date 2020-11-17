@@ -1,0 +1,23 @@
+<body>
+<div>
+  <p>The suit costs: <span id="amount"></span>
+  <p>Here are the upgrades you can select:</p>
+  <p>The upgrades are: <select id="upgrades"></select>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/configly-js@2.0.4/dist/config.js"></script>
+<script>
+  const opts = {};
+  opts['host'] = 'http://localhost:3000';
+  var configly = Configly.init('Dem0apiKEY', opts);
+  configly.get('iron_man_store').then((value) => {
+    if (!value) return;
+    document.querySelector('#amount').innerHTML = value['cost'];
+    value['upgrades'].forEach((v, i) => {
+      let o = document.createElement('option');
+      o.value = i;
+      o.text = v;
+     document.querySelector('#upgrades').add(o, null);
+    })
+  });
+</script>
