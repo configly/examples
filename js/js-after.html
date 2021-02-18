@@ -8,8 +8,9 @@
 <script src="https://cdn.jsdelivr.net/npm/configly-js@2.0.4/dist/config.js"></script>
 <script>
   const opts = {};
-  opts['host'] = 'http://localhost:3000';
-  var configly = Configly.init('Dem0apiKEY', opts);
+  //opts['host'] = 'http://localhost:3000';
+  //var configly = Configly.init('Dem0apiKEY', opts);
+  var configly = Configly.init('aeea42b7-1f9a-4027-89f3-6a30337c5925');
   configly.get('iron_man_store').then((value) => {
     if (!value) return;
     document.querySelector('#amount').innerHTML = value['cost'];
